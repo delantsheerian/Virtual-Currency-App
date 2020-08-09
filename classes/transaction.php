@@ -3,6 +3,7 @@
         private $amount;
         private $sender;
         private $receiver;
+        private $message;
     }
 
     public function getAmount(){
@@ -36,5 +37,14 @@
         if (empty ($receiver)){
             throw new Exception ("Gelieve een bestaande gebruiker in te voeren.");
         }
+    }
+
+    public function getMessage(){
+        return $this->message;
+    }
+
+    public function setMessage(){
+        $this->message = $message;
+        return $this;
     }
 ?>

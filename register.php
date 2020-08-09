@@ -7,6 +7,7 @@
 
 		$user = new User();
 
+		$username = $_POST['username']
 		$email = $_POST['email'];
         $wachtwoord = $_POST['wachtwoord'];
         $balance = $_POST['balans'];
@@ -37,12 +38,6 @@
 		}
 
     }
-    
-    else {
-        $balance = 10;
-    }
-
-	$users = User::getAll();
 	  
   ?>
 
@@ -73,6 +68,11 @@
     		<div class="error"><?php echo $error; ?></div>
     		<?php endif; ?>
 
+			<div>
+				<label for="Gebruikersnaam">Gebruikersnaam</label>
+				<input type="text" class="input" name="gebruikersnaam" required>
+			</div>
+			
 			<div>
 				<label for="Email">Email</label>
 				<input type="text" class="input" name="email" required>

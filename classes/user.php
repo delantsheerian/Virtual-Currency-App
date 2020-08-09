@@ -6,6 +6,18 @@
             private $email;
             private $password;
             private $balance;
+            private $username;
+
+            public function getUsername(){
+                return $this->username;
+            }
+
+            public function setUsername(){
+               
+                if (empty ($username)){
+                    throw new Exception ("Gelieve een gebruikersnaam in te voeren.");
+                }
+            }
     
             public function getEmail(){
                 return $this->email;
