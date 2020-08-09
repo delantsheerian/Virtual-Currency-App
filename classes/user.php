@@ -41,6 +41,16 @@
                 return $this;
             }
 
+            public function getBalance(){
+                return $this->balance;
+            }
+    
+            public function setBalance($balance){
+    
+                $this->balance = $balance;
+                return $this;
+            }
+
         public static function getAll(){
 
             $conn = Db::getConnection();
@@ -64,7 +74,7 @@
 
                 if ($results->rowCount() > 0) {
                         throw new Exception("Het ingegeven emailadres is al reeds in gebruik.");
-                        echo "taken";
+                        echo "Email adres bestaat al.";
                 }
 
                 session_start();
@@ -98,49 +108,6 @@
                 $_SESSION['email'] = $this->email;
 			    return true;
             }
-        }
-
-        public function getUserID(){
-            $conn = Db::getConnection();
-            $statement = $conn->prepare("select * from users where email = :email");
-            $statement->bindValue(":email", $_SESSION['email']);
-            $statement->execute();
-            $result =  $statement->fetch();
-            return $result['id'];
-        }
-
-        public function changeSettings($email, $newpassword){ 
-            
-            $conn =  Db::getConnection();
-            $statement = $conn->prepare("select wachtwoord from users where email = :email");
-            $statement->bindParam(":email", $email);
-            $statement->execute();
-            $result = $statement->fetch(PDO::FETCH_ASSOC);
-
-            if(password_verify($newpassword, $result['wachtwoord']) ){
-            
-                    $conn =  Db::getConnection();
-                    $statement = $conn->prepare("UPDATE users SET voornaam=:voornaam, achternaam=:achternaam, profielfoto=:profielfoto, buddy=:buddy, kenmerk1=:woonplaats, kenmerk2=:keuze, kenmerk3=:jaar, kenmerk4=:hobby, kenmerk5=:muziek WHERE email = :email");
-                    $statement->bindParam(":email", $email);
-            
-                    if($statement->execute()){
-                        return true;
-                    }else{
-                        echo "Er is iets foutgelopen bij het updaten.";
-                    }
-
-            } else {
-                echo "Fout wachtwoord.";
-                return false;
-            }
-        }
-
-        public function countUsers(){
-            $conn = Db::getConnection();
-            $statement=$conn->prepare("select count(*) as totalUsers from users");
-            $statement->execute();
-            $result =  $statement->fetch();
-            return $result['totalUsers'];
         }
     }
 ?>
