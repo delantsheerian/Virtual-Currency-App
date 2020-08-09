@@ -8,7 +8,8 @@
 		$user = new User();
 
 		$email = $_POST['email'];
-		$wachtwoord = $_POST['wachtwoord'];
+        $wachtwoord = $_POST['wachtwoord'];
+        $balance = $_POST['balans'];
 	}
 
 	if(!empty($_POST)){
@@ -20,9 +21,13 @@
 			$wachtwoord = password_hash($wachtwoord.$salt, PASSWORD_DEFAULT, ['cost' => 12]);
 				
 			$user->setEmail($_POST['email']);
-			$user->setPassword($wachtwoord);
+            $user->setPassword($wachtwoord);
+            
+            if (strlen($_POST['wachtwoord']) <5){
+                throw new Exception ("Wachtwoord moet langer zijn dan 5 karakters.");
+            }
 
-			if($user->save()){
+			else ($user->save()){
 				echo "<script>location='updateUser.php'</script>";
 			}
 		}
@@ -31,7 +36,11 @@
 			$error = $th->getMessage();
 		}
 
-	}
+    }
+    
+    else {
+        $balance = 10;
+    }
 
 	$users = User::getAll();
 	  

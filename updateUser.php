@@ -13,7 +13,6 @@
 
         $u = new User();
         $email = $_SESSION['email'];
-        $walletValue = $_POST['walletvalue'];
 
         $newpassword = "";
         if(!empty($_POST['newPassword'])) {
@@ -23,7 +22,7 @@
 
         define ('SITE_ROOT', realpath(dirname(__FILE__)));
 
-        $result = $u->changeSettings($email, $newpassword, $walletValue);
+        $result = $u->changeSettings($email, $newpassword);
 
         if($result === true){
             echo "<script>location='index.php'</script>";

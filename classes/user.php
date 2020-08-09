@@ -5,7 +5,7 @@
         class User{
             private $email;
             private $password;
-            private $wallet
+            private $balance;
     
             public function getEmail(){
                 return $this->email;
@@ -39,15 +39,6 @@
     
                 $this->password = $password;
                 return $this;
-            }
-
-            public function getWalletValue(){
-                return $this->wallet;
-            }
-
-            public function setWalletValue($wallet){
-                $this->wallet = $wallet;
-                return $this
             }
 
         public static function getAll(){
