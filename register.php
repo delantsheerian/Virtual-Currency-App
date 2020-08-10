@@ -8,15 +8,15 @@
 		$user = new User();
 
 		$email = $_POST['email'];
-		$wachtwoord = $_POST['wachtwoord'];
-		$username = $_POST['gebruikersnaam'];
+		$password = $_POST['password'];
+		$username = $_POST['username'];
 
 		try{
 
 			$user = new User();
 
 			$user->setEmail($email);
-			$user->setPassword($wachtwoord);
+			$user->setPassword($password);
 			$user->setUsername($username);
 
 			if ($user->save()){

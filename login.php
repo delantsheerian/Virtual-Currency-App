@@ -8,22 +8,25 @@
     
         $login = new User();
         $login->setEmail($email);
-        $salt = "qsdfg23fnjfhuu!";
-        $login->setPassword($password.$salt);
-        $login->canLogin();
+        $login->setPassword($password);
+        //$salt = "qsdfg23fnjfhuu!";
+        //$login->setPassword($password.$salt);
+        //$login->canLogin();
 
-        if (!$login->canLogin()) {
-            $error = "Er liep iets fout.";
+        //if (!$login->canLogin()) {
+        if ($login->canLogin()) {
+            echo "<script>location='index.php'</script>";
+            //$error = "Er liep iets fout.";
         }
 
         else {
-            $conn = Db::getConnection();
-            $statement = $conn->prepare("select * from users where email = :email");
-            $statement->bindParam(":email", $_SESSION['email']);
-            $statement->execute();
-            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            $error = "Er liep iets fout.";
+            //$conn = Db::getConnection();
+            //$statement = $conn->prepare("select * from users where email = :email");
+            //$statement->bindParam(":email", $_SESSION['email']);
+            //$statement->execute();
+            //$result = $statement->fetch(PDO::FETCH_ASSOC);
         }
-
     }
 
 ?>
