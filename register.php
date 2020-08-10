@@ -9,7 +9,7 @@
 
 		$email = $_POST['email'];
 		$wachtwoord = $_POST['wachtwoord'];
-		$username = $_POST['gebruikersnaam']
+		$username = $_POST['gebruikersnaam'];
 
 		try{
 
@@ -18,13 +18,6 @@
 			$user->setEmail($email);
 			$user->setPassword($wachtwoord);
 			$user->setUsername($username);
-
-			//$salt = "qsdfg23fnjfhuu!";
-			//$wachtwoord = password_hash($wachtwoord.$salt, PASSWORD_DEFAULT, ['cost' => 12]);
-				
-			//if (strlen($_POST['wachtwoord']) <5){
-			//	throw new Exception ("Wachtwoord moet langer zijn dan 5 karakters.");
-			//}
 
 			if ($user->save()){
 				echo "<script>location='login.php'</script>";
@@ -53,7 +46,7 @@
 	<div id="banner"></div>
 
 	<div id="geen_lid">
-		<p>Al een rekening bij VCA? <a href="login.php">Meld je hier aan.</a></p>
+		<p><a href="login.php">Al een account?</a></p>
 	</div>
 
 	<div class="registreerField">
@@ -67,8 +60,8 @@
     		<?php endif; ?>
 
 			<div>
-				<label for="Gebruikersnaam">Gebruikersnaam</label>
-				<input type="text" class="input" name="gebruikersnaam" required>
+				<label for="username">Gebruikersnaam</label>
+				<input type="text" class="input" name="username" required>
 			</div>
 			
 			<div>
@@ -77,8 +70,8 @@
 			</div>
                 
 			<div>
-				<label for="Wachtwoord">Wachtwoord</label>
-				<input type="password" class="input" name="wachtwoord" required>
+				<label for="password">Wachtwoord</label>
+				<input type="password" class="input" name="password" required>
 			</div>
 
 			<div>

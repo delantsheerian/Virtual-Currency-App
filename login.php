@@ -4,7 +4,7 @@
 
 	if (!empty($_POST)) {
         $email = $_POST['email'];
-        $password = $_POST['wachtwoord'];
+        $password = $_POST['password'];
     
         $login = new User();
         $login->setEmail($email);
@@ -16,7 +16,7 @@
             $error = "Er liep iets fout.";
         }
 
-        else ($login->canLogin()){
+        else {
             $conn = Db::getConnection();
             $statement = $conn->prepare("select * from users where email = :email");
             $statement->bindParam(":email", $_SESSION['email']);
@@ -40,17 +40,11 @@
 
 <body>
 
-    <div id="banner"></div>
-
-    <div id="geen_lid">
-        <p>Nog geen account? <a href="register.php">Registreer hier.</a></p>
-    </div>
-
     <div class="aanmeldenField">
 
         <form action="" method="post">
 
-            <h2>Meld je aan bij VCA!</h2>
+            <h1>Virtual Currency App</h1>
 
             <?php if(isset($error)): ?>
     		<div class="error"><?php echo $error; ?></div>
@@ -58,18 +52,20 @@
 
             <div>
                 <label for="email" required>Studenten Email</label>
-                <input class="input" type="text" name="email" required>
+                <input class="input" type="text" name="email" placeholder="Studenten email">
             </div>
-            
+
             <div>
-                <label for="wachtwoord">Wachtwoord</label>
-                <input class="input" type="password" name="wachtwoord">
+                <label for="password">Wachtwoord</label>
+                <input class="input" type="password" name="password" placeholder="Wachtwoord">
             </div>
-            
+
             <div>
                 <input type="submit" class="btn-aanmelden" value="Aanmelden">
+                <a class="btn-register" href="register.php">Nog geen account?</a>
             </div>
-        
+
+            </div>
         </form>
 
     </div>

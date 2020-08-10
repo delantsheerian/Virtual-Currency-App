@@ -1,0 +1,85 @@
+@font-face {
+    font-family:"Circular Book";
+    src: url("../font/CircularStd-Book.otf");
+}
+
+@font-face {
+    font-family:"Circular Medium";
+    src: url("../font/CircularStd-Medium.otf");
+}
+
+@font-face {
+    font-family:"Circular Bold";
+    src: url("../font/CircularStd-Book.otf");
+}
+
+@font-face {
+    font-family:"Circular Black";
+    src: url("../font/CircularStd-Black.otf");
+}
+
+body {}
+
+h1 {
+    font-family: "Circular Bold";
+    font-size: 2rem;
+    color: #0060A8;
+}
+
+h2 {
+    font-family: "Circular Medium";
+    font-size: 1.5rem;
+    color: black;
+}
+
+a, p {
+    font-family: "Ciruclar Book";
+    font-size: 1rem;
+    color: darkgrey;
+}
+
+.aanmeldenField {
+    width: 500px;
+    margin: 120px auto;
+    padding: 42px 42px 36px;
+    border: 1px solid #eaeced;
+    border-radius: 5px;
+    text-align: center;
+}
+
+label[for="email"], label[for="password"] { display: none; }
+
+.input {
+    font-family: "Circular Book";
+    color: #6c7378;
+    border-color: lightgray;
+    border-width: 1px;
+    border-radius: 5px;
+    width: 95%;
+    min-height: 40px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.btn-aanmelden {
+    font-family: "Circular Medium";
+    font-size: 0.75rem;
+    background-color: #0060A8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 95%;
+    min-height: 40px;
+    margin: 20px 0 10px 0;
+}
+
+.btn-register {
+    font-family: "Circular Medium";
+    font-size: 0.75rem;
+    background-color: #D2DBE1;
+    color: #2c2e2f;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px 50px 10px 50px;
+}

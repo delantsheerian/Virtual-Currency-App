@@ -12,11 +12,14 @@
                 return $this->username;
             }
 
-            public function setUsername(){
+            public function setUsername($username){
                
                 if (empty ($username)){
                     throw new Exception ("Gelieve een gebruikersnaam in te voeren.");
                 }
+
+                $this->username = $username;
+                return $this;
             }
     
             public function getEmail(){
@@ -63,63 +66,39 @@
                 return $this;
             }
 
-        public static function getAll(){
+            public function save(){
 
-            $conn = Db::getConnection();
-            $statement = $conn->prepare("select * from users");
-            $statement->execute();
-            $users = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-            return $users;
-        }
-
-        public function save(){
-
-            $conn = Db::getConnection();
-
-            if (isset($_POST['email'])) {
+                $conn = Db::getConnection();
+                $statement = $conn->prepare("insert into users (active, email, password, username, tokens) values (1, :email, :password, :username, 10)");
 
                 $email = $this->getEmail();
-                $conn = Db::getConnection();
-                $sql = "SELECT * FROM users WHERE email='$email'";
-                $results = $conn->query($sql);
+                $password = $this->getPassword();
+                $username = $this->getUsername();
+            
 
-                if ($results->rowCount() > 0) {
-                        throw new Exception("Het ingegeven emailadres is al reeds in gebruik.");
-                        echo "Email adres bestaat al.";
+                $statement->bindValue(":email", $email);
+                $statement->bindValue(":password", $password);
+                $statement->bindValue(":username", $username);
+
+                if($statement->execute()){
+                    return true;
                 }
 
-                session_start();
-                $_SESSION['email'] = $this->email;
             }
 
-		        $statement = $conn->prepare("insert into users (email, wachtwoord) values (:email, :wachtwoord)");
+            public function canLogin() {
 
-            	$email = $this->getEmail();
-            	$wachtwoord = $this->getPassword();
+                $conn = Db::getConnection();
+                $statement = $conn->prepare("select password from users where email = :email");
+                $statement->bindValue(":email", $this->email);
+                $statement->execute();
+                $dbPassword = $statement->fetchColumn();
 
-            	$statement->bindValue(":email", $email);
-            	$statement->bindValue(":wachtwoord", $wachtwoord);
-
-            	if( $statement->execute() ){
-			        return true;
-		        }
-
-        }
-
-        public function canLogin() {
-
-            $conn = Db::getConnection();
-            $statement = $conn->prepare("select wachtwoord from users where email = :email");
-            $statement->bindValue(":email", $this->email);
-            $statement->execute();
-            $dbPassword = $statement->fetchColumn();
-
-            if (password_verify($this->password, $dbPassword)) {
-                session_start();
-                $_SESSION['email'] = $this->email;
-			    return true;
+                if (password_verify($this->password, $dbPassword)) {
+                    session_start();
+                    $_SESSION['email'] = $this->email;
+                    return true;
+                }
             }
-        }
     }
 ?>
