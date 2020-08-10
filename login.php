@@ -20,7 +20,7 @@
         }
 
         else {
-            $error = "Er liep iets fout.";
+            $error = "Deze combinatie bestaat niet. Probeer nog eens.";
             //$conn = Db::getConnection();
             //$statement = $conn->prepare("select * from users where email = :email");
             //$statement->bindParam(":email", $_SESSION['email']);
