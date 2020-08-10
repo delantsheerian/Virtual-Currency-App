@@ -43,14 +43,14 @@
     <div id="banner"></div>
 
     <div id="geen_lid">
-        <p>Nog geen Companion? <a href="register.php">Registreer hier.</a></p>
+        <p>Nog geen account? <a href="register.php">Registreer hier.</a></p>
     </div>
 
     <div class="aanmeldenField">
 
         <form action="" method="post">
 
-            <h2>Meld je aan bij Companion!</h2>
+            <h2>Meld je aan bij VCA!</h2>
 
             <?php if(isset($error)): ?>
     		<div class="error"><?php echo $error; ?></div>
