@@ -7,55 +7,45 @@
 
 		$user = new User();
 
-		$username = $_POST['username']
 		$email = $_POST['email'];
-        $wachtwoord = $_POST['wachtwoord'];
-        $balance = $_POST['balans'];
-	}
+		$wachtwoord = $_POST['wachtwoord'];
+		$username = $_POST['gebruikersnaam']
 
-	if(!empty($_POST)){
-
-		$user = new User();
-
-		$email = $_POST['email'];
-    	$wachtwoord = $_POST['wachtwoord'];
-		$username = $_POST['gebruikersnaam'];
-			
 		try{
 
 			$user = new User();
 
 			$user->setEmail($email);
-            $user->setPassword($wachtwoord);
-            $user->setUsername($username);
+			$user->setPassword($wachtwoord);
+			$user->setUsername($username);
 
-			$salt = "qsdfg23fnjfhuu!";
-			$wachtwoord = password_hash($wachtwoord.$salt, PASSWORD_DEFAULT, ['cost' => 12]);
-            
-            if (strlen($_POST['wachtwoord']) <5){
-                throw new Exception ("Wachtwoord moet langer zijn dan 5 karakters.");
-            }
+			//$salt = "qsdfg23fnjfhuu!";
+			//$wachtwoord = password_hash($wachtwoord.$salt, PASSWORD_DEFAULT, ['cost' => 12]);
+				
+			//if (strlen($_POST['wachtwoord']) <5){
+			//	throw new Exception ("Wachtwoord moet langer zijn dan 5 karakters.");
+			//}
 
-			else ($user->save()){
-				echo "<script>location='index.php'</script>";
+			if ($user->save()){
+				echo "<script>location='login.php'</script>";
 			}
 		}
 
 		catch (\Throwable $th){
 			$error = $th->getMessage();
 		}
-
-    }
+}
 	  
-  ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Registreren bij Virtual Currency App">
 <meta charset="UTF-8">
-<title>Aanmelden bij Virtual Currency App</title>
+<title>Registreren bij Virtual Currency App</title>
 </head>
 
 <body>
@@ -63,7 +53,7 @@
 	<div id="banner"></div>
 
 	<div id="geen_lid">
-		<p>Al een rekening bij VCA? <a href="login.php">Log hier in.</a></p>
+		<p>Al een rekening bij VCA? <a href="login.php">Meld je hier aan.</a></p>
 	</div>
 
 	<div class="registreerField">
@@ -82,7 +72,7 @@
 			</div>
 			
 			<div>
-				<label for="Email">Email</label>
+				<label for="Email">Studenten email</label>
 				<input type="text" class="input" name="email" required>
 			</div>
                 
@@ -92,7 +82,7 @@
 			</div>
 
 			<div>
-				<input type="submit" value="Volgende" class="btn-aanmelden">	
+				<input type="submit" value="Aanmelden" class="btn-aanmelden">	
 			</div>
 	
 		</form>

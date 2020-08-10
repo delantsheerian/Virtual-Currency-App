@@ -1,9 +1,10 @@
 <?php
     class Transaction {
         private $amount;
-        private $sender;
-        private $receiver;
+        private $from_user_id;
+        private $to_user_id;
         private $message;
+        private $date;
     }
 
     public function getAmount(){
@@ -24,7 +25,7 @@
     }
 
     public function setSender(){
-        if (empty ($sender)){
+        if (empty ($from_user_id)){
             throw new Exception ("Gelieve een bestaande gebruiker in te voeren.");
         }
     }
@@ -34,7 +35,7 @@
     }
 
     public function setReceiver(){
-        if (empty ($receiver)){
+        if (empty ($to_user_id)){
             throw new Exception ("Gelieve een bestaande gebruiker in te voeren.");
         }
     }
@@ -45,6 +46,15 @@
 
     public function setMessage(){
         $this->message = $message;
+        return $this;
+    }
+
+    public function getDate(){
+        return $this->date;
+    }
+
+    public function setDate(){
+        $this->date = $date;
         return $this;
     }
 ?>

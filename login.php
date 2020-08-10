@@ -16,7 +16,7 @@
             $error = "Er liep iets fout.";
         }
 
-        if($login->canLogin()){
+        else ($login->canLogin()){
             $conn = Db::getConnection();
             $statement = $conn->prepare("select * from users where email = :email");
             $statement->bindParam(":email", $_SESSION['email']);
@@ -29,13 +29,13 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<title>Meld je aan bij Companion</title>
-<link rel = "stylesheet" type = "text/css" href = "css/style.css"/>
+<meta name="description" content="Aanmelden bij Virtual Currency App">
+<title>Aanmelden bij Virtual Currency App</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
 <body>
