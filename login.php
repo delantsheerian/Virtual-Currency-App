@@ -36,8 +36,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Aanmelden bij Virtual Currency App">
-<title>Aanmelden bij Virtual Currency App</title>
+<meta name="description" content="Aanmelden bij BitPay">
+<title>Aanmelden bij BitPay</title>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
@@ -45,9 +45,9 @@
 
     <div class="aanmeldenField">
 
-        <form action="" method="post">
+        <img src="images/logo.png" alt="bitpay logo" class="logo">
 
-            <h1>Virtual Currency App</h1>
+        <form action="" method="post">
 
             <?php if(isset($error)): ?>
     		<div class="error"><?php echo $error; ?></div>

@@ -36,7 +36,7 @@ a, p {
     color: darkgrey;
 }
 
-.aanmeldenField {
+.aanmeldenField, .registreerField {
     width: 500px;
     margin: 120px auto;
     padding: 42px 42px 36px;
@@ -45,7 +45,12 @@ a, p {
     text-align: center;
 }
 
-label[for="email"], label[for="password"] { display: none; }
+.logo {
+    width: 25%;
+    margin: 20px 0 50px 0;
+}
+
+label[for="email"], label[for="password"], label[for="username"] { display: none; }
 
 .input {
     font-family: "Circular Book";
@@ -62,7 +67,7 @@ label[for="email"], label[for="password"] { display: none; }
 .btn-aanmelden {
     font-family: "Circular Medium";
     font-size: 0.75rem;
-    background-color: #0060A8;
+    background-color: #1A3A8B;
     color: white;
     border: none;
     border-radius: 5px;
@@ -80,4 +85,15 @@ label[for="email"], label[for="password"] { display: none; }
     border-radius: 5px;
     text-decoration: none;
     padding: 14px 185px;
+}
+
+.btn-already_account{
+    font-family: "Circular Medium";
+    font-size: 0.75rem;
+    background-color: #D2DBE1;
+    color: #2c2e2f;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 14px 193px;
 }

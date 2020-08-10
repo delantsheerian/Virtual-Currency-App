@@ -36,18 +36,12 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Registreren bij Virtual Currency App">
+<meta name="description" content="Registreren bij BitPay">
 <meta charset="UTF-8">
-<title>Registreren bij Virtual Currency App</title>
+<title>Registreren bij BitPay</title>
 </head>
 
 <body>
-
-	<div id="banner"></div>
-
-	<div id="geen_lid">
-		<p><a href="login.php">Al een account?</a></p>
-	</div>
 
 	<div class="registreerField">
 
@@ -61,21 +55,22 @@
 
 			<div>
 				<label for="username">Gebruikersnaam</label>
-				<input type="text" class="input" name="username" required>
+				<input type="text" class="input" name="username" placeholder="Kies jouw gebruikersnaam" required>
 			</div>
 			
 			<div>
-				<label for="Email">Studenten email</label>
-				<input type="text" class="input" name="email" required>
+				<label for="email">Studenten email</label>
+				<input type="text" class="input" name="email" placeholder="Geef hier jouw studenten email in" required>
 			</div>
                 
 			<div>
 				<label for="password">Wachtwoord</label>
-				<input type="password" class="input" name="password" required>
+				<input type="password" class="input" name="password" placeholder="Kies jouw wachtwoord"required>
 			</div>
 
 			<div>
-				<input type="submit" value="Aanmelden" class="btn-aanmelden">	
+				<input type="submit" value="Aanmelden" class="btn-aanmelden">
+				<a class="btn-already_account" href="login.php">Al een account?</a>
 			</div>
 	
 		</form>
