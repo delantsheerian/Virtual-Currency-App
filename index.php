@@ -4,10 +4,13 @@
 
     include_once(__DIR__ . "/classes/db.php");
     include_once(__DIR__ . "/classes/user.php");
+    include_once(__DIR__ . "/classes/transaction.php");
 
     if(empty($_SESSION['email'])){
         header("Location:login.php");
     }
+
+    $transaction = new Transaction();
 
 ?>
 
@@ -39,9 +42,14 @@
 
             <h1>Overzicht</h1>
 
-            <div id="saldo"></div>
+            <div id="saldo">
+                <h2>Mijn saldo</h2>
+                <?php echo $transaction->checkWallet($_SESSION['email']); ?>
+            </div>
 
-            <div id="transactions"></div>
+            <div id="transactions">
+                
+            </div>
         
         </div>
     </div>
