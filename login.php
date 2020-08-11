@@ -49,6 +49,8 @@
 
         <form action="" method="post">
 
+            <h2>Login</h2>
+
             <?php if(isset($error)): ?>
     		<div class="error"><?php echo $error; ?></div>
     		<?php endif; ?>
@@ -63,8 +65,8 @@
                 <input class="input" type="password" name="password" placeholder="Wachtwoord">
             </div>
 
-            <div>
-                <input type="submit" class="btn-aanmelden" value="Aanmelden">
+            <div class="buttons">
+                <input type="submit" class="btn-login" value="Aanmelden">
                 <a class="btn-register" href="register.php">Nog geen account?</a>
             </div>
 

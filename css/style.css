@@ -47,24 +47,36 @@ a, p {
 
 .logo {
     width: 25%;
-    margin: 20px 0 50px 0;
+    margin: 20px 0;
 }
 
-label[for="email"], label[for="password"], label[for="username"] { display: none; }
+label[for="email"], label[for="password"], label[for="username"], label[for="amount"], label[for="message"] { display: none; }
 
 .input {
     font-family: "Circular Book";
     color: #6c7378;
-    border-color: lightgray;
-    border-width: 1px;
-    border-radius: 5px;
-    width: 93%;
+    border: none;
+    border-bottom: 1px solid #6c7378;
+    width: 92%;
     min-height: 40px;
-    padding: 5px;
-    margin: 10px;
+    padding-left: 10px;
+    margin: 20px 0;
 }
 
-.btn-aanmelden {
+.input-message {
+    font-family: "Circular Book";
+    color: #6c7378;
+    border: none;
+    border-bottom: 1px solid #6c7378;
+    width: 92%;
+    min-height: 40px;
+    padding-left: 5px;
+    margin: 20px 0;
+}
+
+.buttons { margin: 20px 0; }
+
+.btn-login {
     font-family: "Circular Medium";
     font-size: 0.75rem;
     background-color: #1A3A8B;
@@ -87,7 +99,7 @@ label[for="email"], label[for="password"], label[for="username"] { display: none
     padding: 14px 185px;
 }
 
-.btn-already_account{
+.btn-already-account{
     font-family: "Circular Medium";
     font-size: 0.75rem;
     background-color: #D2DBE1;
@@ -96,4 +108,16 @@ label[for="email"], label[for="password"], label[for="username"] { display: none
     border-radius: 5px;
     text-decoration: none;
     padding: 14px 193px;
+}
+
+.btn-send{
+    font-family: "Circular Medium";
+    font-size: 0.75rem;
+    background-color: #1A3A8B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 95%;
+    min-height: 40px;
+    margin: 50px 0 10px 0;
 }

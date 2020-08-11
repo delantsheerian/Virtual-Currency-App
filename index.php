@@ -26,7 +26,7 @@
     <div id="banner"></div>
 
     <div id="links">
-        <a href="classes/transaction.php">Geld overmaken</a>
+        <a href="transaction.php">Geld overmaken</a>
         <a href="logout.php">Logout</a> <br />
     </div>
     

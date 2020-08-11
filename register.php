@@ -68,9 +68,9 @@
 				<input type="password" class="input" name="password" placeholder="Kies jouw wachtwoord"required>
 			</div>
 
-			<div>
-				<input type="submit" value="Aanmelden" class="btn-aanmelden">
-				<a class="btn-already_account" href="login.php">Al een account?</a>
+			<div class="buttons">
+				<input type="submit" value="Aanmelden" class="btn-login">
+				<a class="btn-already-account" href="login.php">Al een account?</a>
 			</div>
 	
 		</form>
