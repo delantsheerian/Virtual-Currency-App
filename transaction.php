@@ -1,3 +1,42 @@
+<?php
+
+	session_start();
+
+    include_once(__DIR__ . "/classes/db.php");
+	include_once(__DIR__ . "/classes/transaction.php");
+	
+	if (!empty($_POST)){
+		
+		$receiver = $_POST['receiver'];
+        $amount = $_POST['amount'];
+		$message = $_POST['message'];
+
+		$transaction = new Transaction();
+		
+		if ($amount < 1){
+
+			echo "mag niet kleiner zijn dan 1";
+		}
+
+		else if ($amount > $transaction->checkWallet($_SESSION['email'])){
+			echo "te weinig geld kut";
+		}
+
+		else {
+			$transaction->setSender($_SESSION['email']);
+			$transaction->setReceiver($receiver);
+			$transaction->setAmount($amount);
+			$transaction->setMessage($message);
+			$transaction->setDate();
+
+			$transaction->sendMoney();
+			$transaction->addTokens($transaction->checkWallet($receiver));
+			$transaction->retractTokens($transaction->checkWallet($_SESSION['email']));
+		}
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,20 +61,20 @@
 	
 	<div id="main">
 
-		<div class="registreerField">
+		<div class="betaalField">
 
 			<form action="" method="post">
 
 				<h1>Betaling overmaken</h1>
 
 				<div>
-					<label for="username">Ontvanger</label>
-					<input type="text" class="input" name="username" placeholder="Naam of studenten email">
+					<label for="receiver">Ontvanger</label>
+					<input type="text" class="input" name="receiver" placeholder="Studenten email">
 				</div>
 
 				<div>
 					<label for="amount">Bedrag</label>
-					<input type="text" class="input" name="username" placeholder="Jouw bedrag">
+					<input type="text" class="input" name="amount" placeholder="Jouw bedrag">
 				</div>
 
 				<div>

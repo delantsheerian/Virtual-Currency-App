@@ -47,7 +47,7 @@ nav a {
     float: left; 
 }
 
-.aanmeldenField, .registreerField {
+.aanmeldenField, .registreerField, .betaalField {
     width: 500px;
     margin: 120px auto;
     padding: 42px 42px 36px;
@@ -61,7 +61,7 @@ nav a {
     margin: 20px 0;
 }
 
-label[for="email"], label[for="password"], label[for="username"], label[for="amount"], label[for="message"] { display: none; }
+label[for="email"], label[for="password"], label[for="receiver"], label[for="amount"], label[for="message"] { display: none; }
 
 .input {
     font-family: "Circular Book";
