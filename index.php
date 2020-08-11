@@ -14,20 +14,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Virtual Currency App">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Virtual Currency App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Virtual Currency App">
+<title>Overzicht</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="icon" href="images/icon.jpg">
 </head>
 
 <body>
 
-    <div id="banner"></div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="transaction.php" class="btn-transaction">Geld overmaken</a></li>
+                <li><a href="logout.php" class="btn-logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div id="links">
-        <a href="transaction.php">Geld overmaken</a>
-        <a href="logout.php">Logout</a> <br />
+    <div id="main">
+
+        <div id="overall">
+
+            <h1>Overzicht</h1>
+
+            <div id="saldo"></div>
+
+            <div id="transactions"></div>
+        
+        </div>
     </div>
     
 </body>

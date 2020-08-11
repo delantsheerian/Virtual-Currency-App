@@ -39,6 +39,7 @@
 <meta name="description" content="Aanmelden bij BitPay">
 <title>Aanmelden bij BitPay</title>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="icon" href="images/icon.jpg">
 </head>
 
 <body>
@@ -49,7 +50,7 @@
 
         <form action="" method="post">
 
-            <h2>Login</h2>
+            <h1>Login</h1>
 
             <?php if(isset($error)): ?>
     		<div class="error"><?php echo $error; ?></div>
