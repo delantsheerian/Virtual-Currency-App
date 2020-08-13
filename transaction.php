@@ -15,11 +15,11 @@
 		
 		if ($amount < 1){
 
-			echo "mag niet kleiner zijn dan 1";
+			echo "Het ingegeven bedrag mag niet kleiner zijn dan 1";
 		}
 
 		else if ($amount > $transaction->checkWallet($_SESSION['email'])){
-			echo "te weinig geld kut";
+			echo "Saldo ontoereikend.";
 		}
 
 		else {
@@ -69,7 +69,8 @@
 
 				<div>
 					<label for="receiver">Ontvanger</label>
-					<input type="text" class="input" name="receiver" placeholder="Studenten email">
+					<input id="autocomplete" type="text" class="input" name="receiver" placeholder="Studenten email">
+					<ul id="searchResult"></ul>
 				</div>
 
 				<div>

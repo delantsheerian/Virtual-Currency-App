@@ -124,7 +124,7 @@
                 }
             }
 
-            public function getUserID(){
+            public function getUserId(){
 			
                 $conn = Db::getConnection();
                 $statement = $conn->prepare("select * from users where email = :email");
@@ -132,6 +132,16 @@
                 $statement->execute();
                 $result =  $statement->fetch();
                 return $result['id'];
+            }
+
+            public function getUserData($id){
+			
+                $conn = Db::getConnection();
+                $statement = $conn->prepare("select * from users where id = :id");
+                $statement->bindValue(":id", $id);
+                $statement->execute();
+                $result =  $statement->fetch();
+                return $result['username'];
             }
     }
 ?>

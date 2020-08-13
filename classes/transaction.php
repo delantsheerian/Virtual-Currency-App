@@ -138,5 +138,27 @@
         echo $total;
         echo $wallet;
     }
+
+    public function showTransactions($email){
+
+        $conn = Db::getConnection();
+        
+        $stmt = $conn->prepare("SELECT * FROM transactions WHERE from_user_id = '$email'"); 
+        $stmt->execute(); 
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function showTransactionsDetails($id){
+
+        $conn = Db::getConnection();
+        
+        $stmt = $conn->prepare("SELECT * FROM transactions WHERE id = '$id'"); 
+        $stmt->execute(); 
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
 }
 ?>

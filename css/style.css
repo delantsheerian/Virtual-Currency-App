@@ -61,7 +61,7 @@ nav a {
     margin: 20px 0;
 }
 
-label[for="email"], label[for="password"], label[for="receiver"], label[for="amount"], label[for="message"] { display: none; }
+label[for="email"], label[for="password"], label[for="receiver"], label[for="amount"], label[for="message"], label[for="username"] { display: none; }
 
 .input {
     font-family: "Circular Book";

@@ -47,6 +47,8 @@
 
 	<div class="registreerField">
 
+		<img src="images/logo.png" alt="bitpay logo" class="logo">
+
 		<form action="" method="post">
 
 			<h1>Registreren</h1>

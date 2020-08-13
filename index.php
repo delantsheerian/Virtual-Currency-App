@@ -11,6 +11,7 @@
     }
 
     $transaction = new Transaction();
+    $user = new User();
 
 ?>
 
@@ -48,6 +49,30 @@
             </div>
 
             <div id="transactions">
+
+                <h2>Mijn transacties</h2>
+
+                <div>
+                    
+                        <?php 
+                            $id = $user->getUserId();
+                            $result = $transaction->showTransactions($id);
+
+                            foreach($result as $row) { ?>
+                            <div>
+                                <a href="transactionDetails.php?id=<?php echo $row['id'];?>">
+                                    <?php 
+                                        $userData = $user->getUserData($row['from_user_id']);
+                                        echo $userData;
+                                        echo $row['amount'];
+                                        echo substr($row['date'], 0, 10);
+                                    ?>
+                                </a>   
+                            </div>
+                        <?php
+                            }    
+                        ?>
+                </div>
                 
             </div>
         
