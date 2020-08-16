@@ -134,9 +134,6 @@
         $stmt= $conn->prepare($sql);
         $stmt->bindParam(':tokens', $total);
         $stmt->execute();
-
-        echo $total;
-        echo $wallet;
     }
 
     public function showTransactions($email){

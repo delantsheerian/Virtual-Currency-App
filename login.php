@@ -46,7 +46,7 @@
 
     <div class="aanmeldenField">
 
-        <img src="images/logo.png" alt="bitpay logo" class="logo">
+        <img src="images/bitpay-logo.png" alt="bitpay logo" class="logo">
 
         <form action="" method="post">
 

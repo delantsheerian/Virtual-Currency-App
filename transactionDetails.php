@@ -33,27 +33,41 @@
     </header>
 	
 	<div id="main">
-    
-    <div>      
-        <?php 
-
-        $result = $transaction->showTransactionsDetails($_GET['id']);
-
-        foreach($result as $row) { ?>
         
-        <div>
+    <h1>Details</h1>
 
-        <?php 
-            $userData = $user->getUserData($row['from_user_id']);
-            echo $userData;
-            echo $row['amount'];
-            echo substr($row['date'], 0, 10);
-            echo $row['message'];
-        ?>
- 
-        </div>
-        <?php
-        }    
-        ?>
-                </div>
+        <table class="transactions">
+
+            <thead>
+                <th>Verzender</th>
+                <th>Bedrag</th>
+                <th>Datum</th>
+                <th>Bericht</th>
+            </thead>
+
+            <tbody>
+                <?php 
+
+                $result = $transaction->showTransactionsDetails($_GET['id']);
+
+                foreach($result as $row) { ?>
+                
+                <tr> 
+                    <?php $userData = $user->getUserData($row['from_user_id']); ?>
+                    <td><?php echo $userData; ?></td>
+                    <td><?php echo $row['amount']; ?></td>
+                    <td><?php echo substr($row['date'], 0, 10); ?></td>
+                    <td><?php echo $row['message']; ?></td>
+                </tr>
+
+                <?php
+                }    
+                ?>
+            </tbody>
+        
+        </table>
+
+    </div>
+
+</body>
 </html>

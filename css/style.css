@@ -18,34 +18,56 @@
     src: url("../font/CircularStd-Black.otf");
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
     font-family: "Circular Medium";
-    font-size: 1.5rem;
+    font-size: 3rem;
     color: black;
 }
 
-a, p {
-    font-family: "Ciruclar Book";
-    font-size: 1rem;
-    color: darkgrey;
+h2 {
+    font-family: "Circular Medium";
+    font-size: 1.25rem;
+    color: black;
 }
 
 header {
-    width: 100%;
+    width: 15%;
+    height: 100vh;
+    background-color: #007EC6;
+    margin: 0;
+    padding: 0;
     float: left;
 }
 
-nav { 
-    width: 300px;
-    float: right;
+nav {
+    padding: 50px 0 0 50px;
 }
 
-nav ul { list-style-type: none; }
-
-nav a { 
-    margin: 0 10px 0 0;
-    float: left; 
+ul {
+    width: 200px;
+    padding: 0 0 0 10px;
+    list-style: none;
 }
+
+li {
+    margin: 30px 0;
+    padding: 10px;
+}
+
+a {
+    font-family: "Circular Book";
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+
+label[for="email"], label[for="password"], label[for="receiver"], label[for="amount"], label[for="message"], label[for="username"] { display: none; }
 
 .aanmeldenField, .registreerField, .betaalField {
     width: 500px;
@@ -60,8 +82,6 @@ nav a {
     width: 25%;
     margin: 20px 0;
 }
-
-label[for="email"], label[for="password"], label[for="receiver"], label[for="amount"], label[for="message"], label[for="username"] { display: none; }
 
 .input {
     font-family: "Circular Book";
@@ -133,33 +153,68 @@ label[for="email"], label[for="password"], label[for="receiver"], label[for="amo
     margin: 50px 0 10px 0;
 }
 
-.btn-transaction {
-    font-family: "Circular Book";
-    font-size: 0.9rem;
-    color: white;
-    background-color: #007EC6;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 50px;
+.transactions { 
+    width: 75%;
+    margin: 50px auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
 }
 
-.btn-logout {
+.transactions thead { 
+    font-family: "Circular Medium";
+    color: #007EC6; 
+}
+
+.transactions th { padding: 50px 0; }
+.transactions tr { padding: 0 0 50px 0;}
+
+.transactions td { 
     font-family: "Circular Book";
-    font-size: 0.9rem;
+    padding: 20px 0; 
+}
+
+.transactions a {
+    font-family: "Circular Book";
+    font-size: 0.75rem;
+    background-color: #007EC6;
     color: white;
-    background-color: darkgrey;
+    border-radius: 50px;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 50px;
+}
+
+.logout { margin: 20vh 0 0 0; }
+
+#logo {
+    width: 150px;
+    margin: 50px;
 }
 
 #main {
-    width: 100%;
-    text-align: center;
+    width: 80%;
     float: left;
 }
 
 #overall {
     width: 85%;
     margin: 50px auto 0 auto;
+}
+
+#saldo { margin: 100px 0 50px 0; }
+
+#saldo span {
+    font-family: "Circular Bold";
+    font-size: 2rem;
+    color: #007EC6;
+}
+
+#transactions { float: left; }
+
+#logout-btn {
+    font-size: 1rem;
+    background-color: white;
+    color: #007EC6;
+    margin: 0;
+    padding: 10px 40px;
+    border-radius: 50px;
 }
