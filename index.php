@@ -23,8 +23,18 @@
 <meta name="description" content="Virtual Currency App">
 <title>Overzicht</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="icon" href="images/icon.jpg">
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+<script>
+
+    $(document).ready(function(){
+        setInterval(function(){
+            $("#wallet").load('refresh.php');
+        }, 300);
+    })
+
+</script>
 </head>
 
 <body>
@@ -32,10 +42,15 @@
     <header>
 
         <a href="index.php"><img id="logo" src="images/logo.png" alt="logo bitpay"></a>
+
+        <div id="saldo">
+                <p>Mijn balans</p>
+                <span id="wallet"><?php echo $transaction->checkWallet($_SESSION['email']); ?></span>
+        </div>
     
         <nav>
             <ul>
-                <li><a href="index.php">Geschiedenis</a></li>
+                <li><a href="index.php">Overzicht</a></li>
                 <li><a href="#">Meldingen</a></li>
                 <li><a href="transaction.php">Geld overmaken</a></li>
                 <li><a href="#">Mijn account</a></li>
@@ -47,49 +62,29 @@
     </header>
 
     <div id="main">
-
         <div id="overall">
 
             <h1>Overzicht</h1>
 
-            <div id="saldo">
-                <h2>Mijn balans</h2>
-                <span><?php echo $transaction->checkWallet($_SESSION['email']); ?></span>
-            </div>
-
             <div id="transactions">
 
-            <h2>Mijn transacties</h2>
+                <?php 
+                    $id = $user->getUserId();
+                    $result = $transaction->showTransactions($id);
 
-                <table class="transactions">
+                    foreach($result as $row) { ?>
 
-                    <thead>
-                        <th>Verzender</th>
-                        <th>Bedrag</th>
-                        <th>Datum</th>
-                        <th></th>
-                    </thead>
-
-                    <tbody>
-                        <?php 
-                            $id = $user->getUserId();
-                            $result = $transaction->showTransactions($id);
-
-                            foreach($result as $row) { ?>
-                                <tr>
-                                    <?php 
-                                        $userData = $user->getUserData($row['from_user_id']); ?>
-                                        <td><?php echo $userData; ?></td>
-                                        <td><?php echo $row['amount']; ?></td>
-                                        <td><?php echo substr($row['date'], 0, 10); ?></td>
-                                        <td><a href="transactionDetails.php?id=<?php echo $row['id'];?>">Bekijk details</a></td>
-                                </tr>
-                        <?php } ?>
-                    </tbody>
-
-                </table>
-
+                        <li><a class="transactie" href="transactionDetails.php?id=<?php echo $row['id'];?>">
+                        <?php $userData = $user->getUserData($row['from_user_id']);
+                        echo $userData;?> heeft <?php
+                        echo $row['amount']; ?> euro overgeschreven op <?php
+                        echo substr($row['date'], 0, 10); ?>.
+                        </a></li>
+                    <?php
+                    }
+                    ?>
             </div>
+
         </div>
     </div>
     

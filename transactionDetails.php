@@ -23,14 +23,27 @@
 
 <body>
 
-	<header>
-        <nav>
-            <ul>
-                <li><a href="index.php" class="btn-transaction">Naar overzicht</a></li>
-                <li><a href="logout.php" class="btn-logout">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+
+    <a href="index.php"><img id="logo" src="images/logo.png" alt="logo bitpay"></a>
+
+    <div id="saldo">
+            <p>Mijn balans</p>
+            <span id="saldoAantal"><?php echo $transaction->checkWallet($_SESSION['email']); ?></span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.php">Overzicht</a></li>
+            <li><a href="#">Meldingen</a></li>
+            <li><a href="transaction.php">Geld overmaken</a></li>
+            <li><a href="#">Mijn account</a></li>
+            <li><a href="#">Ondersteuning</a></li>
+            <li class="logout"><a href="logout.php" id="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+</header>
 	
 	<div id="main">
         

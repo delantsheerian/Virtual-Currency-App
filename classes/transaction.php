@@ -140,7 +140,7 @@
 
         $conn = Db::getConnection();
         
-        $stmt = $conn->prepare("SELECT * FROM transactions WHERE from_user_id = '$email'"); 
+        $stmt = $conn->prepare("SELECT * FROM transactions WHERE from_user_id = '$email' || to_user_id= '$email'"); 
         $stmt->execute(); 
         $result = $stmt->fetchAll();
 
