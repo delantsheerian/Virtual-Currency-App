@@ -141,7 +141,7 @@
                 $statement->bindValue(":id", $id);
                 $statement->execute();
                 $result =  $statement->fetch();
-                return $result['username'];
+                return $result;
             }
     }
 ?>

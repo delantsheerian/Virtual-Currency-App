@@ -1,22 +1,19 @@
 <?php 
 
     session_start();
-    
-    include_once(__DIR__ . '/classes/user.php');
+
     include_once(__DIR__ . '/classes/transaction.php');
 
-    $user = new User();
+    $transaction = new Transaction();
 
     if(isset($_SESSION['email'])){
-
-        $username = $user->getUserId('email');
-        $_SESSION['email'] = $username['id'];
-        echo $user['tokens']; 
-    
+    echo $transaction->checkWallet($_SESSION['email']);
     } 
-    
+  
     else {
-        header("Location: index.php");
+        header("Location: inloggen.php");
     }
 
-  ?>
+?>
+
+  

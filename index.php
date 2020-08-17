@@ -26,14 +26,22 @@
 <link rel="icon" href="images/icon.jpg">
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 
-<script>
+<script language="javascript">
 
-    $(document).ready(function(){
-        setInterval(function(){
-            $("#wallet").load('refresh.php');
-        }, 300);
-    })
+    refreshPage();
 
+    function refreshPage(){
+        $.ajax ({
+            url: "refresh.php",
+            success: 
+                function(result){
+                    $('#wallet').text(result);
+                    setTimeout(function(){
+                        refreshPage();
+                    }, 10000);
+                }
+        });
+    }
 </script>
 </head>
 
@@ -76,7 +84,7 @@
 
                         <li><a class="transactie" href="transactionDetails.php?id=<?php echo $row['id'];?>">
                         <?php $userData = $user->getUserData($row['from_user_id']);
-                        echo $userData;?> heeft <?php
+                        echo $userData['username'];?> heeft <?php
                         echo $row['amount']; ?> euro overgeschreven op <?php
                         echo substr($row['date'], 0, 10); ?>.
                         </a></li>
